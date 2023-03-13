@@ -9,7 +9,7 @@ function Home() {
       <div className="headerContainer">
         <h1> NextTrip </h1>
         <p> Travel across Pakistan</p>
-        <Link to="/menu">
+        <Link to="/destinations">
           <button> Destinations </button>
         </Link>
       </div>

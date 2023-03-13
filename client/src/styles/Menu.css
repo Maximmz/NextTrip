@@ -2,6 +2,7 @@
   width: 100%;
   height: auto;
   align-items: stretch;
+  positioN: relative;
 }
 .dest .destTitle {
   font-family: cursive;
@@ -13,6 +14,7 @@
 .destList {
   width: 100%;
   height: auto;
+  
 }
 /* Dest ITEM STYLING */
 
@@ -22,6 +24,7 @@
   height: 200px;
   margin: 20px;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
   
  
 }
@@ -29,6 +32,7 @@
 .destItem:hover {
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);
   transition: 0.3s ease-in;
+  transform: scale(1.01);
   cursor: pointer;
 }
 
@@ -47,11 +51,9 @@
   opacity: 1;
 }
 .destItem div:hover {
-  opacity: 0.5;
+  opacity: 0.9;
 }
-.destText div:hover {
-  opacity: 1;
-}
+
 .destText {
   
   margin-right: 50%;
@@ -61,6 +63,11 @@
   border-radius: 15px;
   color: rgb(0, 0, 0);
   font-size: 40px;
+  text-transform: uppercase;
+}
+.destText div:hover {
+  opacity: 1;
+  cursor:pointer;
 }
 
 @media only screen and (max-width: 1300px) {

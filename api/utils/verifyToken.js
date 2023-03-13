@@ -9,7 +9,10 @@ export const verifyToken = (req,res,next) => {
     }
     jwt.verify(token, process.env.JWT, (err,user)=>{
         if(err) return next(createError(403, "Token is not valid!"));
+        else {
         req.user = user;
+        console.log(user);
+        }
         next();
     });
 };
@@ -28,6 +31,7 @@ export const verifyAdmin = (req,res,next)=>{
         if(req.user.isAdmin){
             next();
         } else{
+            
              return next(createError(403,"You are not authorized!"));
         }
     });

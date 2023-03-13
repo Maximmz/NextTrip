@@ -3,7 +3,7 @@ import LowerKachura from "../assets/LowerKachura.jpeg";
 import ShigarFort from "../assets/ShigarFort.jpeg"
 export const SkarduData = [
     
-    {id:"Skardu",
+    {id:"skardu",
         images: [
             {
                 image1: UpperKachura,

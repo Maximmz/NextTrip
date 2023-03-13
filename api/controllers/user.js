@@ -19,9 +19,10 @@ export const deleteUser = async (req,res,next)=> {
 }
 
 export const getUser = async (req,res,next)=> {
-
+    console.log(req.params.id); // add this console log to check the user id
     try {
-        const user = await User.findById(req.params.id,);
+        const user = await User.findById(req.params.id);
+        console.log(user); // add this console log to check the user object
         res.status(200).json(user);
     }catch(err) {
         next(err);
@@ -36,3 +37,5 @@ export const getUsers = async (req,res,next)=> {
         next(err);
     }
     }
+
+   

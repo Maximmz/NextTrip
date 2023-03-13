@@ -1,27 +1,73 @@
-import React from "react";
-import ContactLeft from "../assets/Contact.jpg";
-import "../styles/Contact.css";
+import axios from "axios";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../hooks/AuthContext";
+import "../styles/Login.css";
+import styles from "../styles/Valid.module.css";
 
-function Login() {
+const Login = () => {
+  const [credentials, setCredentials] = useState({
+    username: undefined,
+    password: undefined,
+  });
+  const [isValid, setIsValid] = useState(true);
+
+  
+
+  const { loading, error, dispatch } = useContext(AuthContext);
+
+  const navigate = useNavigate()
+
+  const handleChange = (e) => {
+    setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+    if(e.target.value.trim().length>0) {
+      setIsValid(true);
+    }
+  };
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+    dispatch({ type: "LOGIN_START" });
+    try {
+      const res = await axios.post("http://localhost:8800/api/auth/login", credentials);
+      
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
+      navigate("/")
+    } catch (err) {
+      dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+    
+      
+    }
+  };
+
+
   return (
-    <div className="contact">
-      <div
-        className="leftSide"
-        style={{ backgroundImage: `url(${ContactLeft})` }}
-      ></div>
-      <div className="rightSide">
-        <h1> Login</h1>
-
-        <form id="contact-form" method="POST">
-          <label htmlFor="name">Username</label>
-          <input name="name" placeholder="Enter your username" type="text" />
-          <label htmlFor="email">Email</label>
-          <input name="email" placeholder="Enter email..." type="email" />
-          <button type="submit"> Login</button>
-        </form>
+    <div className={`${styles['form-control']} ${!isValid ? styles.invalid : styles.valid}`}>
+    <div className="login">
+      <div className="lContainer">
+        <input
+          type="text"
+          
+          placeholder="username"
+          id="username"
+          onChange={handleChange}
+          className="lInput"
+        />
+        <input
+          type="password"
+          placeholder="password"
+          id="password"
+          onChange={handleChange}
+          className="lInput"
+        />
+        <button disabled={loading} onClick={handleClick} className="lButton">
+          Login
+        </button>
+        {error && <span>{error.message}</span>}
       </div>
     </div>
+    </div>
   );
-}
+};
 
 export default Login;

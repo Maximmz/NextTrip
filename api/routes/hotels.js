@@ -4,7 +4,9 @@ import {
     updateHotel,
     deleteHotel,
     getHotel,
-    getHotels
+    getHotels,
+    getAreaHotels,
+    countByArea
     
 } from "../controllers/hotel.js";
 import {verifyAdmin } from "../utils/verifyToken.js";
@@ -17,9 +19,14 @@ router.post("/",verifyAdmin, createHotel);
 router.put("/:id",verifyAdmin, updateHotel);
 //Delete
 router.delete("/:id",verifyAdmin, deleteHotel);
+//Get area based hotels
+router.get("/finda/:area",getAreaHotels);
 //Get
-router.get("/:id", getHotel);
+router.get("/find/:id", getHotel);
 //Get all
 router.get("/", getHotels);
+
+router.get("/countByArea", countByArea)
+
 
 export default router;

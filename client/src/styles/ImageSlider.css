@@ -1,30 +1,114 @@
-/* ImageSlider.css */
 .image-slider {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .image-slider img {
-    width: 100%;
-    height: 400px;
-    object-fit:contain;
-    margin-bottom: 20px;
-  }
-  
-  .image-slider button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px
-  }
-  
-  .image-slider button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+  max-width: 800px;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.link-button {
+  display: inline-block;
+  border: none;
+  color: #333;
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.link-button:hover {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.image-slider img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  transition: transform 0.5s ease;
+}
+.image-description {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+.image-slider button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.image-slider img:hover {
+  transform: scale(1.05);
+}
+
+.image-slider button:hover {
+  background-color: #388e3c;
+}
+
+.image-slider .slider-controls {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  padding: 20px 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.image-slider .slider-control {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.image-slider .slider-control:hover {
+  transform: scale(1.2);
+}
+
+.image-slider .slider-control.prev {
+  margin-right: auto;
+}
+
+.image-slider .slider-control.next {
+  margin-left: auto;
+}
+
+.image-slider .slider-control:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.image-slider button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

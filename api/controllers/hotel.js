@@ -48,3 +48,25 @@ export const getHotels = async (req,res,next)=> {
         next(err);
     }
     };
+    export const countByArea = async (req,res,next)=> {
+        const areas = req.query.areas.split(",");
+        try {
+            const list = await Promise.all(
+                areas.map((area) => {
+                  return Hotel.countDocuments({ area: area });
+                })
+              );
+              res.status(200).json(list);
+        }catch(err) {
+            next(err);
+        }
+        };
+    export const getAreaHotels = async (req, res, next) => {
+        try {
+          const {area} = req.params;
+          const hotels = await Hotel.find({ area: area });
+          res.status(200).json(hotels);
+        } catch (err) {
+          next(err);
+        }
+      };

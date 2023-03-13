@@ -10,7 +10,7 @@ function DestItem({ image, name, id }) {
           backgroundImage: `url(${image})`,
         }} 
       >
-        <Link to={`/destinations/${id}`} className="destText">
+        <Link to={`/destinations/${name}`} >
           <button 
             className="destText"
             

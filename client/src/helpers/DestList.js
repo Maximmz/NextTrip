@@ -8,7 +8,7 @@ import Gilgit2 from "../assets/gilgit.jpg";
 export const DestList = [
   {
     id: 1,
-    name: "Swat",
+    name: "swat",
     image: Summer,
   
    
@@ -16,14 +16,14 @@ export const DestList = [
   },
   {
     id: 2,
-    name: "Skardu",
+    name: "skardu",
     image: Skardu,
   
 
   },
   {
     id: 3,
-    name: "Gilgit",
+    name: "hunza",
     image: Gilgit2,
 
 

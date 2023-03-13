@@ -1,0 +1,33 @@
+.container {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+  }
+
+  .left-column {
+    width: 60%; 
+  }
+  
+  .right-column {
+    width: 40%; 
+  }
+  
+  .hotel-count-button {
+    padding-bottom: 20px;
+    padding-right: 30px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+    background-color:rgb(69, 150, 146)
+  }
+
+  .hotel-count-button:hover {
+    transform: scale(1.05);
+  }
+  

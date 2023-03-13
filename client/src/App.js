@@ -5,25 +5,27 @@ import Home from "./pages/Home";
 import Destinations from "./pages/Destinations";
 import About from "./pages/About";
 import Login from "./pages/Login";
-import Skardu from "./pages/Skardu";
-import Swat from "./pages/Swat";
-import Gilgit from "./pages/Gilgit";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Destination from "./pages/Destination";
+import Hotels from "./pages/Hotels";
+import Hotel from "./pages/Hotel";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 
 function App() {
   return (
     <div className="App">
+      
       <Router>
         <Navbar />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/menu" exact component={Destinations} />
-          <Route path="/about" exact component={About} />
-          <Route path="/login" exact component={Login} />
-          <Route path='/destinations/1' exact component={Swat} />
-          <Route path='/destinations/2' exact component={Skardu} />
-          <Route path='/destinations/3' exact component={Gilgit} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/destinations" element={<Destinations />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+          <Route path='/destinations/:name' element={<Destination />} />
+          <Route path='/destinations/:name/hotels' element={<Hotels />} />
+          <Route path='/hotel/:id' element={<Hotel />} />
+        </Routes>
         <Footer />
       </Router>
     </div>
